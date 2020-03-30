@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_221346) do
+ActiveRecord::Schema.define(version: 2020_03_30_231806) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line_1"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_03_30_221346) do
     t.decimal "hst_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "abbr"
   end
 
   add_foreign_key "addresses", "customers"
