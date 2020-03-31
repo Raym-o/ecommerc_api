@@ -23,7 +23,7 @@ class OrderProductsController < ApplicationController
   def create
     @order_product = OrderProduct.new(order_product_params)
 
-    if @order_product.create(order_product_params)
+    if @order_product.save
       render :show, status: :created, location: @order_product
     else
       render json: @order_product.errors, status: :unprocessable_entity
