@@ -32,3 +32,4 @@ end
     price: Faker::Number.decimal(l_digits: 2, r_digits: 2)
   )
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
