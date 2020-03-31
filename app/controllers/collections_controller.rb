@@ -11,14 +11,6 @@ class CollectionsController < ApplicationController
   # GET /collections/1.json
   def show; end
 
-  # GET /collections/new
-  def new
-    @collection = Collection.new
-  end
-
-  # GET /collections/1/edit
-  def edit; end
-
   # POST /collections.json
   def create
     @collection = Collection.new(collection_params)

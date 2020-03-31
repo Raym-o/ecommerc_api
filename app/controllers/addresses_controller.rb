@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AddressesController < ApplicationController
-  before_action :set_address, only: %i[show edit update destroy]
+  before_action :set_address, only: %i[show update destroy]
 
   # GET /addresses.json
   def index

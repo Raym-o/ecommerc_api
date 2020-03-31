@@ -11,15 +11,7 @@ class CustomersController < ApplicationController
   # GET /customers/1.json
   def show; end
 
-  # GET /customers/new
-  def new
-    @customer = Customer.new
-  end
-
-  # GET /customers/1/edit
-  def edit; end
-
-  # POST /customers.json
+   # POST /customers.json
   def create
     @customer = Customer.new(customer_params)
 

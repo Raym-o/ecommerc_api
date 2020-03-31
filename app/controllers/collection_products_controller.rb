@@ -11,14 +11,6 @@ class CollectionProductsController < ApplicationController
   # GET /collection_products/1.json
   def show; end
 
-  # GET /collection_products/new
-  def new
-    @collection_product = CollectionProduct.new
-  end
-
-  # GET /collection_products/1/edit
-  def edit; end
-
   # POST /collection_products.json
   def create
     @collection_product = CollectionProduct.new(collection_product_params)

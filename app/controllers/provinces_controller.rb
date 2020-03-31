@@ -11,14 +11,6 @@ class ProvincesController < ApplicationController
   # GET /provinces/1.json
   def show; end
 
-  # GET /provinces/new
-  def new
-    @province = Province.new
-  end
-
-  # GET /provinces/1/edit
-  def edit; end
-
   # POST /provinces.json
   def create
     @province = Province.new(province_params)

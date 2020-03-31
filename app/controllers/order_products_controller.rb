@@ -11,14 +11,6 @@ class OrderProductsController < ApplicationController
   # GET /order_products/1.json
   def show; end
 
-  # GET /order_products/new
-  def new
-    @order_product = OrderProduct.new
-  end
-
-  # GET /order_products/1/edit
-  def edit; end
-
   # POST /order_products.json
   def create
     @order_product = OrderProduct.new(order_product_params)
