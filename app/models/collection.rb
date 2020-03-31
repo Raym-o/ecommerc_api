@@ -5,4 +5,6 @@ class Collection < ApplicationRecord
   has_many :products, through: :collection_products
 
   validates :title, presence: true
+
+  # has_one_attached :image
 end
