@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
   has_many :orders, dependent: :restrict_with_error
 
   validates :first_name, :last_name, :username, :email, presence: true
-  validates :username, :email, uniqueness: { message: 'already in use' }
+  validates :username, uniqueness: { message: 'already in use' }
   validates :username, format: {
     with: /\A[a-zA-Z0-9]+\Z/,
     message: 'must be alphanumeric'

@@ -9,5 +9,8 @@ Rails.application.routes.draw do
     resources :orders
     resources :products
     resources :customers
+    resources :addresses
+    resources :collection_products
+    resources :order_products
   end
 end

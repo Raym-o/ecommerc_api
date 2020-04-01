@@ -3,7 +3,7 @@
 json.extract! customer, :id, :first_name, :last_name, :password_digest, :username, :email, :created_at, :updated_at
 json.url customer_url(customer, format: :json)
 
-json.address do
+json.address.present? do
   json.id customer.address.id
   json.line_1 customer.address.line_1
   json.line_2 customer.address.line_2
