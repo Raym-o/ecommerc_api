@@ -10,7 +10,6 @@ class Product < ApplicationRecord
 
   has_one_attached :image
 
-
   # def on_sale?
   #   discount != 0
   # end
