@@ -16,7 +16,7 @@ module EcommerceApi
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resources '*', headers: :any, methods: %i[get post options]
+        resource '*', headers: :any, methods: %i[get post options]
       end
     end
   end
