@@ -12,7 +12,7 @@ json.address(customer.address).present? do
   json.province_id customer.address.province_id
 end
 
-json.orders(customer.orders).present? do |order|
+json.orders(customer.orders) do |order|
   json.id order.id
   json.url order_url(order, format: :json)
 end
