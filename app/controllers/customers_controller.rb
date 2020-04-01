@@ -5,13 +5,14 @@ class CustomersController < ApplicationController
 
   # GET /customers.json
   def index
-    @customers = Customer.all
+    @customers = Customer.includes(:address,
+                                   :orders).all
   end
 
   # GET /customers/1.json
   def show; end
 
-   # POST /customers.json
+  # POST /customers.json
   def create
     @customer = Customer.new(customer_params)
 
