@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Class that represents Products offered for sale.
 class Product < ApplicationRecord
   has_many :order_products
   has_many :collection_products
@@ -11,7 +12,7 @@ class Product < ApplicationRecord
   validates :title, uniqueness: true
   validates :title, length: { maximum: 50 }
 
-  validates :title, :description, format: { with: /\A[a-zA-Z0-9_.,- ]*\z/ }
+  validates :title, :description, format: { with: /\A[a-zA-Z0-9 -,.:;]+\z/ }
 
   validates :description, length: { maximum: 500 }
 
