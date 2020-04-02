@@ -5,7 +5,13 @@ class Order < ApplicationRecord
   has_many :order_products, dependent: :destroy
   has_many :products, through: :order_products
 
-  validates :status, :pst, :gst, :hst, :customer, presence: true
+  validates :status, :price, :pst, :gst, :hst, :customer, presence: true
+
+  validates :status, inclusion: { in: %w[Unpaid Paid],
+                                  message: '%{value} is not a valid status' }
+
+  validates :price, :pst, :gst, :hst,
+            numericality: { greater_than_or_equal_to: 0 }
 
   # def paid?
   #   status == 'Paid'

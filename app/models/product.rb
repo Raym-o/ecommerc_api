@@ -7,7 +7,15 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :collection_products, allow_destroy: true
 
   validates :title, :description, :price, presence: true
+
   validates :title, uniqueness: true
+  validates :title, length: { maximum: 50 }
+
+  validates :title, :description, format: { with: /\A[a-zA-Z0-9_.,- ]*\z/ }
+
+  validates :description, length: { maximum: 500 }
+
+  validates :price, numericality: { greater_than_or_equal_to: 0 }
 
   has_one_attached :image
 
