@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   has_many :order_products
   has_many :collection_products
   has_many :collections, through: :collection_products
+  accepts_nested_attributes_for :collection_products, allow_destroy: true
 
   validates :title, :description, :price, presence: true
   validates :title, uniqueness: true

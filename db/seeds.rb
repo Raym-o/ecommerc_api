@@ -106,8 +106,8 @@ end
 #   emailcounter += 1
 # end
 
-# Page.create(title: 'About', content: 'Fill this in.', permalink: 'about_us')
-# Page.create(title: 'Contact', content: 'Fill this in.', permalink: 'contact_us')
+Page.create(title: 'About', content: 'Fill this in.', permalink: 'about_us')
+Page.create(title: 'Contact', content: 'Fill this in.', permalink: 'contact_us')
 
 if Rails.env.development?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
