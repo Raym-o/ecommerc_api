@@ -93,29 +93,6 @@ customers_array.each do |cust|
   end
 end
 
-# ct = 1
-# ct2 = 1
-# 3.times do
-#   cust = Customer.find(ct)
-#   ord = cust.orders.create(
-#     status: 'pending',
-#     price: 0.1,
-#     pst: 0.0,
-#     gst: 0.0,
-#     hst: 0.0,
-#     customer: cust
-#   )
-#   2.times do
-#     ord.order_products.create(
-#       order: ord,
-#       product: Product.find(ct2),
-#       price: 0.55
-#     )
-#     ct2 += 1
-#   end
-#   ct += 1
-# end
-
 # emailcounter = 0
 # email_array = ['first@test.com', 'second@teest.com', 'thrid@ggas.com']
 # 3.times do
@@ -128,6 +105,9 @@ end
 #   )
 #   emailcounter += 1
 # end
+
+# Page.create(title: 'About', content: 'Fill this in.', permalink: 'about_us')
+# Page.create(title: 'Contact', content: 'Fill this in.', permalink: 'contact_us')
 
 if Rails.env.development?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
