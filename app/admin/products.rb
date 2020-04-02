@@ -29,7 +29,9 @@ ActiveAdmin.register Product do
       row :price
       row :video
       row :slug
-      row :image
+      row :image do |product|
+        url_for(product.image) if product.image.present?
+      end
       row :collections do |product|
         product.collections.map(&:title).join(', ').html_safe
       end
