@@ -2,7 +2,7 @@
 
 ActiveAdmin.register Product do
   permit_params :title, :description, :price,
-                :video, :slug,
+                :video, :slug, :image,
                 collection_products_attributes: %i[id collection_id product_id _destroy]
 
   index do
@@ -13,6 +13,9 @@ ActiveAdmin.register Product do
     column :price
     column :video
     column :slug
+    column :image do |product|
+      product.image.present?
+    end
     column :collections do |product|
       product.collections.map(&:title).join(', ').html_safe
     end
@@ -26,6 +29,7 @@ ActiveAdmin.register Product do
       row :price
       row :video
       row :slug
+      row :image
       row :collections do |product|
         product.collections.map(&:title).join(', ').html_safe
       end

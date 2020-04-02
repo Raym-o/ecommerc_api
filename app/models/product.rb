@@ -12,7 +12,7 @@ class Product < ApplicationRecord
   validates :title, uniqueness: true
   validates :title, length: { maximum: 50 }
 
-  validates :title, :description, format: { with: /\A[a-zA-Z0-9 -,.:;]+\z/ }
+  validates :title, :description, format: { with: /\A[a-zA-Z0-9 \-,.:;]+\z/ }
 
   validates :description, length: { maximum: 500 }
 
