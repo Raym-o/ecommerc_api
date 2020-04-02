@@ -7,7 +7,6 @@ one:
   gst: 9.99
   hst: 9.99
   customer: one
-  product: one
 
 two:
   status: MyString
@@ -16,4 +15,3 @@ two:
   gst: 9.99
   hst: 9.99
   customer: two
-  product: two

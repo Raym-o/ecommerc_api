@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+gem 'activestorage', '~> 6.0', '>= 6.0.2.2'
+gem 'activeadmin', '~> 2.6', '>= 2.6.1' # Admin Dashboard gem
+gem 'devise' # Authentication gem
+gem 'formtastic', '~> 3.1', '>= 3.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
@@ -24,6 +27,10 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+
+gem 'rack-cors', '~> 0.4.0'
+
+gem 'faker'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
