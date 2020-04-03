@@ -5,7 +5,7 @@ class CollectionsController < ApplicationController
 
   # GET /collections.json
   def index
-    @collections = Collection.includes(:products).all
+    @collections = Collection.includes(:products).order(:title)
   end
 
   # GET /collections/1.json

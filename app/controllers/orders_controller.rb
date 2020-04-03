@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
   # GET /orders.json
   def index
-    @orders = Order.includes(:products).all
+    @orders = Order.includes(:products).order(:created_at)
   end
 
   # GET /orders/1.json

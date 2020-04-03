@@ -5,7 +5,8 @@ class AddressesController < ApplicationController
 
   # GET /addresses.json
   def index
-    @addresses = Address.all
+    @addresses = Address.includes(:province,
+                                  :customer).order(:line_1)
   end
 
   # GET /addresses/1.json

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :collections
     resources :orders
     resources :products
+    resources :provinces
     resources :customers
     resources :addresses
     resources :collection_products

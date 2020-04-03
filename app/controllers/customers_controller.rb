@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @customers = Customer.includes(:address,
-                                   :orders).all
+                                   :orders).order(:last_name)
   end
 
   # GET /customers/1.json

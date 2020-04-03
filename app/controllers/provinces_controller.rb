@@ -5,7 +5,7 @@ class ProvincesController < ApplicationController
 
   # GET /provinces.json
   def index
-    @provinces = Province.all
+    @provinces = Province.order(:name)
   end
 
   # GET /provinces/1.json
