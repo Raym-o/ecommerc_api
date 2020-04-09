@@ -46,7 +46,9 @@ ActiveAdmin.register Product do
       f.input :price
       f.input :video
       f.input :slug
-      f.input :image, as: :file
+      f.input :image, as: :file, hint: f.object.image.present? \
+        ? f.template.image_tag(f.object.image)
+        : f.template.content_tag(:span, 'no product image yet')
       f.has_many :collection_products, allow_destroy: true do |n_f|
         n_f.input :collection
       end

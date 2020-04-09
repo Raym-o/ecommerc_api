@@ -6,5 +6,4 @@ class CollectionProduct < ApplicationRecord
 
   # Added both to provide meaningful error message for either Model in Admin add form
   validates :product, uniqueness: { scope: :collection }
-  validates :collection, uniqueness: { scope: :product }
 end

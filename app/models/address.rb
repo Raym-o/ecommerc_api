@@ -9,7 +9,9 @@ class Address < ApplicationRecord
 
   validates :city, format: { with: /\A[a-zA-Z0-9 \-.]*\z/ }
 
-  validates :line_1, :line_2, format: { with: /\A[a-zA-Z0-9 \-,.:;]+\z/ }
+  # This validation creates a defacto presence: true validation, was a prblm w line_2
+  validates :line_1, format: { with: /\A[a-zA-Z0-9 \-,.:;]+\z/ }
+  validates :line_2, format: { with: /\A[a-zA-Z0-9 \-,.:;]+\z/ }, if: -> { line_2.present? }
 
   validates :postal_code, format: {
     with: /[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ ]?\d[ABCEGHJ-NPRSTV-Z]\d/,
