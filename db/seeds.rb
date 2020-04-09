@@ -31,6 +31,8 @@ end
     description: Faker::Food.description,
     price: Faker::Number.decimal(l_digits: 2, r_digits: 2)
   )
+  product.image.attach(io: File.open('/mnt/c/Users/baby_Ray_Ray/fullstack/ecommerce_api/app/assets/images/dogbanana.jfif'),
+                       filename: 'dogbanana.jfif')
 end
 
 counter = 1
@@ -74,25 +76,26 @@ customers_array.each do |cust|
     postal_code: "T#{cust[:addr_count]}T#{cust[:addr_count]}P#{cust[:addr_count]}",
     province_id: 1
   )
-  # ct2 = 1
-  # 3.times do
-  #   ord = cur.Order.create(
-  #     status: 'pending',
-  #     price: 0.1,
-  #     pst: 0.0,
-  #     gst: 0.0,
-  #     hst: 0.0,
-  #     customer: cur
-  #   )
-  #   2.times do
-  #     ord.OrderProduct.create(
-  #       order: ord,
-  #       product: Product.find(ct2),
-  #       price: 0.55
-  #     )
-  #     ct2 += 1
-  #   end
-  # end
+  ct2 = 1
+  3.times do
+    ord = Order.create(
+      status: 'Unpaid',
+      price: 0.1,
+      pst: 0.0,
+      gst: 0.0,
+      hst: 0.0,
+      customer: cur
+    )
+    2.times do
+      op = Product.find(ct2)
+      OrderProduct.create(
+        order_id: ord.id,
+        product_id: op.id,
+        price: 0.55
+      )
+      ct2 += 1
+    end
+  end
 end
 
 # emailcounter = 0
