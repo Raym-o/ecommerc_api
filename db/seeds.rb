@@ -36,19 +36,20 @@ end
 end
 
 counter = 1
-
+col_counter = ''
 5.times do
   col = Collection.create(
-    title: Faker::Cannabis.unique.medical_use,
-    description: Faker::Game.genre
+    title: Faker::Ancient.unique.god + col_counter,
+    description: Faker::Game.unique.genre + col_counter
   )
+  col_counter += 'a'
+  prod_x = 1
   3.times do
-    prod_x = Product.find(counter)
     CollectionProduct.create(
       collection_id: col.id,
-      product_id: prod_x.id
+      product_id: prod_x
     )
-    counter += 1
+    prod_x += 1
   end
 end
 
