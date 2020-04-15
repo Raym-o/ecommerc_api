@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'rack-cors', '~> 0.4.0'
+gem 'rack-cors', '~> 1.0.5'
 
 gem 'faker'
 
