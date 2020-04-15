@@ -10,7 +10,7 @@ class Collection < ApplicationRecord
   validates :title, length: { maximum: 50 }
 
   # This validation creates a defacto presence: true validation
-  validates :title, format: { with: /\A[a-zA-Z0-9 -,.:;]+\z/ }
+  # validates :title, format: { with: /\A[a-zA-Z0-9 -,.:;]+\z/ }
   validates :description, format: { with: /\A[a-zA-Z0-9 -,.:;]+\z/ }, if: -> { description.present? }
 
   validates :description, length: { maximum: 500 }

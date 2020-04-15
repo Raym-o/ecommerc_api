@@ -134,7 +134,8 @@ ActiveRecord::Schema.define(version: 20_200_402_194_639) do
   create_table 'products', force: :cascade do |t|
     t.string 'title'
     t.text 'description'
-    t.decimal 'price'
+    # t.decimal 'price'
+    t.string 'price'
     t.string 'video'
     t.text 'slug'
     t.datetime 'created_at', precision: 6, null: false

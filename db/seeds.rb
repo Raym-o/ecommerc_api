@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'uri'
+require 'csv'
+
 provinces = [
   { name: 'Alberta', abbr: 'AB', pst_rate: 0, hst_rate: 0 },
   { name: 'British Columbia', abbr: 'BC', pst_rate: 0.07, hst_rate: 0 },
@@ -25,22 +28,27 @@ provinces.each do |province|
   )
 end
 
-50.times do
+CSV.foreach(Rails.root.join('../csv/https___justthegoods.net_searc.csv'),
+            encoding: 'iso-8859-1:utf-8',
+            quote_char: '^',
+            col_sep: '`', headers: true) do |row|
   product = Product.create(
-    title: Faker::Food.unique.dish,
+    title: row[1],
     description: Faker::Food.description,
-    price: Faker::Number.decimal(l_digits: 2, r_digits: 2)
+    price: row[4]
   )
-  product.image.attach(io: File.open('/mnt/c/Users/baby_Ray_Ray/fullstack/ecommerce_api/app/assets/images/dogbanana.jfif'),
-                       filename: 'dogbanana.jfif')
+  # file = URI.open(row[2].to_s)
+  product.image.attach(io: File.open('/mnt/c/Users/baby_Ray_Ray/fullstack/ecommerce_api/app/assets/images/dogbanana.jfif'), filename: 'dogbanana.jfif', content_type: 'image/jpg')
 end
 
-counter = 1
 col_counter = ''
-5.times do
+CSV.foreach(Rails.root.join('../csv/https___justthegoods.net_colle.csv'),
+            encoding: 'iso-8859-1:utf-8',
+            quote_char: '^',
+            col_sep: '`', headers: true) do |row|
   col = Collection.create(
-    title: Faker::Ancient.unique.god + col_counter,
-    description: Faker::Game.unique.genre + col_counter
+    title: row[2],
+    description: Faker::Game.genre + col_counter
   )
   col_counter += 'a'
   prod_x = 1
