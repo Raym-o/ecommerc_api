@@ -27,7 +27,7 @@ provinces.each do |province|
     hst_rate: province[:hst_rate]
   )
 end
-
+count = 0
 CSV.foreach(Rails.root.join('../csv/https___justthegoods.net_searc.csv'),
             encoding: 'iso-8859-1:utf-8',
             quote_char: '^',
@@ -37,10 +37,10 @@ CSV.foreach(Rails.root.join('../csv/https___justthegoods.net_searc.csv'),
     description: Faker::Food.description,
     price: row[4]
   )
-  # file = URI.open(row[2].to_s)
+  count += 1 if product.invalid?
   product.image.attach(io: URI.open(row[2]), filename: row[1], content_type: 'image/jpg')
 end
-
+puts count
 col_counter = ''
 CSV.foreach(Rails.root.join('../csv/https___justthegoods.net_colle.csv'),
             encoding: 'iso-8859-1:utf-8',

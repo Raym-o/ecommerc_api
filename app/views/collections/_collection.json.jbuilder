@@ -15,4 +15,3 @@ json.products(collection.products) do |col_pro|
   json.image_url url_for(col_pro.image) if col_pro.image.present?
   json.url product_url(col_pro, format: :json)
 end
-#:id, :title, :description, :price, :video, :slug, :created_at, :updated_at

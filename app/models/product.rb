@@ -11,10 +11,10 @@ class Product < ApplicationRecord
   validates :title, :price, presence: true
 
   validates :title, uniqueness: true
-  validates :title, length: { maximum: 50 }
+  validates :title, length: { maximum: 100 }
 
   # validates :title, format: { with: /\A[a-zA-Z0-9 \-,.:;]+\z/ }
-  validates :description, format: { with: /\A[a-zA-Z0-9 \-,.:;]+\z/ }, if: -> { description.present? }
+  # validates :description, format: { with: /\A[a-zA-Z0-9 \-,.:;]+\z/ }, if: -> { description.present? }
 
   validates :description, length: { maximum: 500 }
 
