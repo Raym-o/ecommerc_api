@@ -38,7 +38,7 @@ CSV.foreach(Rails.root.join('../csv/https___justthegoods.net_searc.csv'),
     price: row[4]
   )
   # file = URI.open(row[2].to_s)
-  product.image.attach(io: URI.open(row[2]), filename: 'dogbanana.jfif', content_type: 'image/jpg')
+  product.image.attach(io: URI.open(row[2]), filename: row[1], content_type: 'image/jpg')
 end
 
 col_counter = ''
@@ -50,6 +50,9 @@ CSV.foreach(Rails.root.join('../csv/https___justthegoods.net_colle.csv'),
     title: row[2],
     description: Faker::Game.genre + col_counter
   )
+  img = row[1]
+  img_url = 'https:' + img.slice(img.index("'") + 1, (img.rindex("'") - img.index("'") - 1))
+  col.image.attach(io: URI.open(img_url), filename: row[2])
   col_counter += 'a'
   prod_x = 1
   3.times do
