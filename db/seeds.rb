@@ -38,7 +38,7 @@ CSV.foreach(Rails.root.join('../csv/https___justthegoods.net_searc.csv'),
     price: row[4]
   )
   # file = URI.open(row[2].to_s)
-  product.image.attach(io: File.open('/mnt/c/Users/baby_Ray_Ray/fullstack/ecommerce_api/app/assets/images/dogbanana.jfif'), filename: 'dogbanana.jfif', content_type: 'image/jpg')
+  product.image.attach(io: URI.open(row[2]), filename: 'dogbanana.jfif', content_type: 'image/jpg')
 end
 
 col_counter = ''
