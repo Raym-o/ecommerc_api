@@ -103,7 +103,8 @@ customers_array.each do |cust|
       OrderProduct.create(
         order_id: ord.id,
         product_id: op.id,
-        price: 0.55
+        price: 0.55,
+        quantity: 1
       )
       ct2 += 1
     end
